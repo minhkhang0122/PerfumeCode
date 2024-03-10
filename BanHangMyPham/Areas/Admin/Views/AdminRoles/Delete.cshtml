@@ -1,0 +1,44 @@
+﻿@model BanHangMyPham.Models.Role
+
+@{
+    ViewData["Title"] = "Xóa quyền truy cập";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<nav>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Danh sách quyền truy cập</a></li>
+        <li class="breadcrumb-item active">Xóa quyền truy cập</li>
+    </ol>
+</nav>
+<div class="col-12">
+    <div class="card top-selling overflow-auto">
+        <div class="card-body pb-0">
+            <h5 class="card-title">Xóa quyền truy cập</h5>
+                <div class="table-responsive">
+                    <table class="table table-borderless m-t-20">
+                        <tbody>
+                            <tr>
+                                <td>ID:</td>
+                                <td>@Model.RolesId</td>
+                            </tr>
+                            <tr>
+                                <td>Tên quyền truy cập:</td>
+                                <td>@Model.RoleName</td>
+                            </tr>
+                                <td>
+                                     <form asp-action="Delete" asp-route-id="@Model.RolesId">
+                                        <input type="hidden" asp-for="RolesId" />
+                                        <input type="submit" value="Xác nhận xóa" class="btn btn-danger" /> 
+                                    </form>
+                                </td>
+                            
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <a class="btn btn-primary btn-tone m-r-5" asp-action="Index">Back to List</a>
+</div>

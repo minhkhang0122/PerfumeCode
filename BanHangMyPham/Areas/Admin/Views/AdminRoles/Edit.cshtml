@@ -1,0 +1,40 @@
+﻿@model BanHangMyPham.Models.Role
+
+@{
+    ViewData["Title"] = "Chỉnh sửa quyền truy cập";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<nav>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="AdminRoles" asp-action="Index">Danh sách quyền truy cập</a></li>
+        <li class="breadcrumb-item active">Chỉnh sửa quyền truy cập</li>
+    </ol>
+</nav>
+<div class="col-lg-6">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Chỉnh sửa quyền truy cập</h5>
+
+            <!-- Vertical Form -->
+            <form asp-action="Edit" asp-route-id="@Model.RolesId" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="RolesId" />
+                <div class="col-12">
+                    <label class="form-label">Role Name</label>
+                    <input type="text" class="form-control" asp-for="RoleName" placeholder="Role Name">
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Description</label>
+                    <input type="text" class="form-control" asp-for="Description" placeholder="Description">
+                </div>
+                <div></div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form><!-- Vertical Form -->
+        </div>
+    </div>
+    <a class="btn btn-primary btn-tone m-r-5" asp-action="Index">Back to List</a>
+
+</div>

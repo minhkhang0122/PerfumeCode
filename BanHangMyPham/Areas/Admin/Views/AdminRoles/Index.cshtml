@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BanHangMyPham.Models.Role>
+
+@{
+    ViewData["Title"] = "Quản lý quyền truy cập"; //Thích ghi thế nào ghi 
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<nav>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item">Danh sách quyền truy cập</li>
+    </ol>
+</nav>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Danh sách quyền truy cập</h5>
+        <!-- Table with hoverable rows -->
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Mô tả</th>
+                    <th scope="col">#</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+                    foreach(var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.RolesId</th>
+                            <td>@item.RoleName</td>
+                            <td>@item.Description</td>
+                            <td>
+                                <a class="btn btn-primary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminRoles" asp-action="Details" asp-route-id="@item.RolesId">Details</a>
+                                <a class="btn btn-secondary btn-tone m-r-5" asp-area="Admin" asp-controller="AdminRoles" asp-action="Edit" asp-route-id="@item.RolesId">Edit</a>
+                                <a class="btn btn-danger btn-tone m-r-5" asp-area="Admin" asp-controller="AdminRoles" asp-action="Delete" asp-route-id="@item.RolesId">Delete</a>
+                            </td>
+
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+        <!-- End Table with hoverable rows -->
+    </div>
+</div>
+
+
